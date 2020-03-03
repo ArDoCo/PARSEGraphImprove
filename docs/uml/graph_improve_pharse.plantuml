@@ -1,0 +1,124 @@
+@startuml
+
+
+
+object token0 {
+	value = "This"
+	sentence = 0
+	chunkIOB = "B-NP"
+	position = 0
+}
+
+object token1 {
+	value = "is"
+	sentence = 0
+	chunkIOB = "B-VP"
+	position = 1
+}
+
+object token2 {
+	value = "a"
+	sentence = 0
+	chunkIOB = "B-NP"
+	position = 2
+}
+
+object token3 {
+	value = "house"
+	sentence = 0
+	chunkIOB = "I-NP"
+	position = 3
+}
+
+object token4 {
+	value = "."
+	sentence = 0
+	chunkIOB = "0"
+	position = 4
+}
+
+object token5 {
+	value = "Here"
+	sentence = 1
+	chunkIOB = "B-ADVP"
+	position = 5
+}
+
+object token6 {
+	value = "we"
+	sentence = 1
+	chunkIOB = "B-NP"
+	position = 6
+}
+
+object token7 {
+	value = "go"
+	sentence = 1
+	chunkIOB = "B-VP"
+	position = 7
+}
+
+object token8 {
+	value = "."
+	sentence = 1
+	chunkIOB = "0"
+	position = 8
+}
+
+token0 <-right-> token1 : relation
+token1 <-right-> token2 : relation
+token2 <-right-> token3 : relation
+token3 <-right-> token4 : relation
+token4 <-right-> token5 : relation
+token5 <-right-> token6 : relation
+token6 <-right-> token7 : relation
+token7 <-right-> token8 : relation
+
+object noun_phrase0 {
+	CHUNK_IOB = NP
+}
+
+token0 <-up-> noun_phrase0 : begin_noun_phrase
+
+
+object verb_phrase0 {
+	CHUNK_IOB = VP
+}
+
+token1 <-up-> verb_phrase0 : begin_verb_phrase
+
+
+object noun_phrase1 {
+	CHUNK_IOB = NP
+}
+
+token2 <-up-> noun_phrase1 : begin_noun_phrase
+token3 <-up-> noun_phrase1 : inside_noun_phrase
+
+object adverb_phrase0 {
+	CHUNK_IOB = ADVP
+}
+
+token5 <-up-> adverb_phrase0 : begin_adverb_phrase
+
+object noun_phrase2 {
+	CHUNK_IOB = NP
+}
+
+token6 <-up-> noun_phrase2 : begin_noun_phrase
+
+object verb_phrase1 {
+	CHUNK_IOB = VP
+}
+
+token7 <-up-> verb_phrase1 : begin_verb_phrase
+
+
+noun_phrase0 <-right-> verb_phrase0 : phrase2phrase
+verb_phrase0 <-right-> noun_phrase1 : phrase2phrase
+noun_phrase1 <-right-> adverb_phrase0 : phrase2phrase
+adverb_phrase0 <-right-> noun_phrase2 : phrase2phrase
+noun_phrase2 <-right-> verb_phrase1 : phrase2phrase
+
+
+@enduml

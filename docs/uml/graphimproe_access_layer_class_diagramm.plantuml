@@ -1,0 +1,99 @@
+@startuml
+class ImprovedParseDocument [[java:edu.kit.ipd.are.graphimprove.nlp.accessdecorators.ImprovedParseDocument]] {
+	-{static}String CONTEXT_RELATION_ARC_TYPE
+	-IGraph graph
+	-INodeType sentenceNodeType
+	-String documentId
+	-ZonedDateTime processingDate
+	+ImprovedParseDocument(IGraph graph, String documentId)
+	+String getText()
+	+String getId()
+	+String toDebugString()
+	+String toExtensiveDebugString()
+	+void annotate(Annotation annotation)
+	+List<? extends Coreference> getCoreferences()
+	+List<ImprovedParseWord> getNamedEntityWords()
+	+List<ImprovedParsePhrase> getPhrasesOfType(PhraseType type)
+	+List<ImprovedParsePhrase> getNounPhrases()
+	+List<ImprovedParsePhrase> getPhrases()
+	+Calendar getProcessingDate()
+	+ZonedDateTime getProcessingDateAsZonedDateTime()
+	+List<ImprovedParseSentence> getSentences()
+	+List<ImprovedParseWord> getWords()
+}
+interface Document [[java:edu.kit.ipd.are.archdoclink.nlp.Document]] {
+}
+Document <|.. ImprovedParseDocument
+class ImprovedParsePhrase [[java:edu.kit.ipd.are.graphimprove.nlp.accessdecorators.ImprovedParsePhrase]] {
+	-INode node
+	+ImprovedParsePhrase(INode node)
+	+PhraseEnum getChunkIOB()
+	+String getText()
+	+void annotate(Document document, Annotation annotation)
+	+boolean containsWord(Word word)
+	+String getTextWithoutLeadingStopwords()
+	+PhraseType getType()
+	+List<? extends Word> getWords()
+}
+interface Phrase [[java:edu.kit.ipd.are.archdoclink.nlp.Phrase]] {
+}
+Phrase <|.. ImprovedParsePhrase
+class ImprovedParseProcessing [[java:edu.kit.ipd.are.graphimprove.nlp.accessdecorators.ImprovedParseProcessing]] {
+	-{static}Logger logger
+	-GraphBuilder graphBuilder
+	-TextSNLP tnlp
+	-GraphImprovePipeline graphImprove
+	+void init(Document document)
+	+void init(String text, String documentId)
+	-PrePipelineData initPipeline(String input)
+	-void execute(AbstractAgent agent, IGraph graph)
+	+Document getDocument()
+	+List<ImprovedParseWord> getNamedEntityWords()
+	+List<ImprovedParseWord> getWords()
+	+Optional<ImprovedParsePhrase> getPhraseOfWord(Word word)
+	+List<ImprovedParsePhrase> getPhrases()
+	+List<ImprovedParsePhrase> getNounPhrases()
+	+List<ImprovedParseSentence> getSentences()
+	+List<? extends Coreference> getCoreferences()
+	+String toDebugString()
+	+String toExtensiveDebugString()
+	+void annotate(TextElement textElement, Annotation annotation)
+}
+class ImprovedParseDocument [[java:edu.kit.ipd.are.graphimprove.nlp.accessdecorators.ImprovedParseDocument]] {
+}
+ImprovedParseProcessing --> "1" ImprovedParseDocument : document
+interface NaturalLanguageProcessing [[java:edu.kit.ipd.are.archdoclink.nlp.NaturalLanguageProcessing]] {
+}
+NaturalLanguageProcessing <|.. ImprovedParseProcessing
+class ImprovedParseSentence [[java:edu.kit.ipd.are.graphimprove.nlp.accessdecorators.ImprovedParseSentence]] {
+	-INode sentenceINode
+	+ImprovedParseSentence(ImprovedParseDocument doc, INode sentenceINode)
+	+String getText()
+	+String getId()
+	+void annotate(Annotation annotation)
+	+Document getDocument()
+	+List<? extends Phrase> getNounPhrases()
+	+List<? extends Phrase> getPhrases()
+	+List<? extends Phrase> getPhrasesOfType(PhraseType phraseType)
+	+List<? extends Word> getWords()
+	+Optional<? extends Sentence> nextSentence()
+	+Optional<? extends Sentence> previousSentence()
+}
+class ImprovedParseDocument [[java:edu.kit.ipd.are.graphimprove.nlp.accessdecorators.ImprovedParseDocument]] {
+}
+ImprovedParseSentence --> "1" ImprovedParseDocument : document
+interface Sentence [[java:edu.kit.ipd.are.archdoclink.nlp.Sentence]] {
+}
+Sentence <|.. ImprovedParseSentence
+class ImprovedParseWord [[java:edu.kit.ipd.are.graphimprove.nlp.accessdecorators.ImprovedParseWord]] {
+	-{static}String NEXT_WORD_ARC_TYPE
+	-INode node
+	+ImprovedParseWord(INode node)
+	+Optional<? extends Word> nextWord()
+	+Optional<? extends Word> previousWord()
+	+boolean equals(Object obj)
+}
+class ParseWord [[java:edu.kit.ipd.are.archdoclink.nlp.parse.ParseWord]] {
+}
+ParseWord <|-- ImprovedParseWord
+@enduml

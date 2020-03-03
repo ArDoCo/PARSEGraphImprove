@@ -1,0 +1,68 @@
+@startuml
+
+title Graph - Class Diagram
+
+class Graph {
+    createNode(type: INodeType)
+    createArc(src: INode, tar: INode, type:IArcType)
+    deleteNode(node: INode)
+    replaceNode(oldNode: INode, newNode: INode, deleteArcs: bool)
+    deleteArc(arc: IArc)
+    getNodes(): List<INode>
+    getArcs(): List<IArc>
+    getNodeTypes(): Set<INodeType>
+    getNodeType(name: String): INodeType
+    createNodeType(name: String): INodeType
+    hasNodeType(): bool
+    getArcTypes(): Set<IArcType>
+    getArcType(name: String): IArcType
+    createArcType(name: String): IArcType
+    hasArcType(name: String): bool
+}
+
+
+class ArcType {
+    addAttributeToType(typeAsString: String, attributeName: String)
+    getAllTypeAttributesTypesAndNames(): List<Pair<String,String>>
+    containsAttribute(attributeName, typeAsString: String)
+    getName(): String
+}
+
+class NodeType {
+    addAttributeToType(typeAsString: String, attributeName: String)
+    getAllTypeAttributesTypesAndNames(): List<Pair<String,String>>
+    containsAttribute(attributeName, typeAsString: String)
+    getName(): String
+
+}
+
+
+
+class Arc {
+	getSourceNode(): INode
+	getTargetNode(): INode
+	getType(): IArcType
+}
+
+class Node {
+	incomingkArcs: Set<IArc>	
+	outgoingkArcs: Set<IArc>
+	getOutgoingArcs(): List<? extends IArc>	
+	getOutgoingArcsOfType(type: IArcType): List<? extends IArc>	
+	getIncommingArcs(): List<? extends IArc>	
+	getIncommingArcsOfType(type: IArcType): List<? extends IArc>	
+	getNumberOfIncomingArcs(): int
+	getNumberOfOutgoingArcs(): int
+	getType(): INodeType;
+}
+Arc --> "1..1" ArcType
+Node --> "1..1" NodeType
+Node "1..1" --right-- "0..*" Arc: outgoing >
+Node "1..1" --right-- "0..*" Arc: incomming >
+
+Node "0..*" <-- Graph
+Arc "0..*" <-- Graph
+NodeType <-- "0..*" Graph
+ArcType <-- "0..*" Graph
+  
+@enduml

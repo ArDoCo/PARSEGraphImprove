@@ -1,0 +1,55 @@
+@startuml
+
+object sentence0 {
+	sentenceNumber = 0
+}
+
+object sentence1 {
+	sentenceNumber = 1
+}
+
+sentence0 <-right-> sentence1: sentence2sentence
+
+
+object noun_phrase0 {
+	CHUNK_IOB = NP
+}
+
+
+object verb_phrase0 {
+	CHUNK_IOB = VP
+}
+
+object noun_phrase1 {
+	CHUNK_IOB = NP
+}
+
+
+object adverb_phrase0 {
+	CHUNK_IOB = ADVP
+}
+
+object noun_phrase2 {
+	CHUNK_IOB = NP
+}
+
+
+object verb_phrase1 {
+	CHUNK_IOB = VP
+}
+
+noun_phrase0 <-right-> verb_phrase0 : phrase2phrase
+verb_phrase0 <-right-> noun_phrase1 : phrase2phrase
+noun_phrase1 <-right-> adverb_phrase0 : phrase2phrase
+adverb_phrase0 <-right-> noun_phrase2 : phrase2phrase
+noun_phrase2 <-right-> verb_phrase1 : phrase2phrase
+
+
+noun_phrase0 <-up-> sentence0: sentence2phrase
+verb_phrase0 <-up-> sentence0: sentence2phrase
+noun_phrase1 <-up-> sentence0: sentence2phrase
+adverb_phrase0 <-up-> sentence1: sentence2phrase
+noun_phrase2 <-up-> sentence1: sentence2phrase
+verb_phrase1 <-up-> sentence1: sentence2phrase
+
+@enduml

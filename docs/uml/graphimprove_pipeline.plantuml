@@ -1,0 +1,63 @@
+@startuml
+class GraphImprovePipeline [[java:edu.kit.ipd.are.graphimprove.nlp.GraphImprovePipeline]] {
+	+{static}String GRAPH_IMPROVE_PIPELINE
+	+void init()
+	+void exec(AbstractPipelineData data)
+	+String getID()
+}
+class GraphImproveStrategy [[java:edu.kit.ipd.are.graphimprove.nlp.GraphImproveStrategy]] {
+}
+GraphImprovePipeline --> "*" GraphImproveStrategy : strategies
+interface IPipelineStage [[java:edu.kit.ipd.parse.luna.pipeline.IPipelineStage]] {
+}
+IPipelineStage <|.. GraphImprovePipeline
+interface GraphImproveStrategy [[java:edu.kit.ipd.are.graphimprove.nlp.GraphImproveStrategy]] {
+	void createArcTypes(IGraph graph)
+	void createNodeTypes(IGraph graph)
+	void executeImprovement(IGraph graph)
+}
+class PhraseStrategy [[java:edu.kit.ipd.are.graphimprove.nlp.improvestrategies.PhraseStrategy]] {
+	+{static}String CHUNKIOB_ATTRIBUTE_KEY
+	~Map<String,INodeType> nodeTypes
+	~Map<String,IArcType> arcTypes
+	~Map<String,Function<INode,Void>> functionMap
+	~IGraph graph
+	~INode phraseNode
+	+PhraseStrategy()
+	+void createArcTypes(IGraph graph)
+	+void createNodeTypes(IGraph graph)
+	+void executeImprovement(IGraph graph)
+	-List<INode> getTokenNodes(IGraph graph)
+}
+interface GraphImproveStrategy [[java:edu.kit.ipd.are.graphimprove.nlp.GraphImproveStrategy]] {
+}
+GraphImproveStrategy <|.. PhraseStrategy
+class SentenceStrategy [[java:edu.kit.ipd.are.graphimprove.nlp.improvestrategies.SentenceStrategy]] {
+	+{static}String SENTENCE_NODE_TYPE
+	+{static}String SENTENCE_TO_SENCTENCE_ARC_TYPE
+	+{static}String WORD_TO_SENCTENCE_ARC_TYPE
+	+{static}String SENTENCE_NUMBER_ATTRIBUTE
+	-{static}int FIRST_SENTENCE_NUMBER
+	-{static}IArcType word2sentenceArcTyp
+	-{static}IArcType sentence2sentenceArcTyp
+	-{static}INodeType sentenceNodeType
+	+void createArcTypes(IGraph graph)
+	+void createNodeTypes(IGraph graph)
+	+void executeImprovement(IGraph graph)
+	-Map<Integer,List<INode>> getTokenGroupedBySentence(IGraph graph)
+	-void buildSentence(Map<Integer,List<INode>> sentences, IGraph graph)
+}
+interface GraphImproveStrategy [[java:edu.kit.ipd.are.graphimprove.nlp.GraphImproveStrategy]] {
+}
+GraphImproveStrategy <|.. SentenceStrategy
+class SentenceToPhraseStrategy [[java:edu.kit.ipd.are.graphimprove.nlp.improvestrategies.SentenceToPhraseStrategy]] {
+	+{static}String SENTENCE2PHRASE
+	-IArcType sentenceToPhraseArcTyp
+	+void createArcTypes(IGraph graph)
+	+void createNodeTypes(IGraph graph)
+	+void executeImprovement(IGraph graph)
+}
+interface GraphImproveStrategy [[java:edu.kit.ipd.are.graphimprove.nlp.GraphImproveStrategy]] {
+}
+GraphImproveStrategy <|.. SentenceToPhraseStrategy
+@enduml
