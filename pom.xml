@@ -26,7 +26,7 @@
       <url>http://bob.ipd.kit.edu/nexus/repository/maven-public-snapshots</url>
     </repository>
     <repository>
-      <id>github NLWrapper</id>
+      <id>github</id>
       <name>GitHub Gram21 Apache Maven Packages</name>
       <url>https://maven.pkg.github.com/Gram21/NLWrapper</url>
     </repository>
