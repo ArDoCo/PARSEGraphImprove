@@ -29,6 +29,11 @@
       <id>Eclipse</id>
       <url>http://download.eclipse.org/releases/2019-09/</url>
     </repository>
+    <repository>
+      <id>github NLWrapper</id>
+      <name>GitHub Gram21 Apache Maven Packages</name>
+      <url>https://maven.pkg.github.com/Gram21/NLWrapper</url>
+    </repository>
   </repositories>
 
   <parent>
