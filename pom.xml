@@ -26,10 +26,6 @@
       <url>http://bob.ipd.kit.edu/nexus/repository/maven-public-snapshots</url>
     </repository>
     <repository>
-      <id>Eclipse</id>
-      <url>http://download.eclipse.org/releases/2019-09/</url>
-    </repository>
-    <repository>
       <id>github NLWrapper</id>
       <name>GitHub Gram21 Apache Maven Packages</name>
       <url>https://maven.pkg.github.com/Gram21/NLWrapper</url>
@@ -67,14 +63,6 @@
 			<artifactId>luna</artifactId>
 		</dependency>
 
-
-		<dependency>
-		   	<groupId>edu.kit.ipd</groupId>
-			<artifactId>NLWrapper</artifactId>
-			<version>0.0.1</version>
-		</dependency>
-
-
 		<!-- Eclipse collections -->
 		<dependency>
 		  <groupId>org.eclipse.collections</groupId>
@@ -95,38 +83,44 @@
 		</dependency>
 
 		<dependency>
-      <groupId>org.junit.jupiter</groupId>
-      <artifactId>junit-jupiter-engine</artifactId>
-      <version>5.3.1</version>
-      <scope>test</scope>
-    </dependency>
+	      <groupId>org.junit.jupiter</groupId>
+	      <artifactId>junit-jupiter-engine</artifactId>
+	      <version>5.3.1</version>
+	      <scope>test</scope>
+	    </dependency>
 
-    <dependency>
-	    <groupId>org.mockito</groupId>
-	    <artifactId>mockito-junit-jupiter</artifactId>
-	    <version>2.23.0</version>
-	    <scope>test</scope>
-	</dependency>
+	    <dependency>
+		    <groupId>org.mockito</groupId>
+		    <artifactId>mockito-junit-jupiter</artifactId>
+		    <version>2.23.0</version>
+		    <scope>test</scope>
+		</dependency>
 
-	<dependency>
-	    <groupId>org.junit.platform</groupId>
-	    <artifactId>junit-platform-runner</artifactId>
-	    <version>1.2.0</version>
-	    <scope>test</scope>
-	</dependency>
-	<dependency>
-	     <groupId>org.junit.vintage</groupId>
-	     <artifactId>junit-vintage-engine</artifactId>
-	     <version>5.2.0</version>
-	     <scope>test</scope>
-	</dependency>
+		<dependency>
+		    <groupId>org.junit.platform</groupId>
+		    <artifactId>junit-platform-runner</artifactId>
+		    <version>1.2.0</version>
+		    <scope>test</scope>
+		</dependency>
+		<dependency>
+		     <groupId>org.junit.vintage</groupId>
+		     <artifactId>junit-vintage-engine</artifactId>
+		     <version>5.2.0</version>
+		     <scope>test</scope>
+		</dependency>
 
-	<dependency>
-	    <groupId>org.hamcrest</groupId>
-	    <artifactId>hamcrest-library</artifactId>
-	    <version>2.1</version>
-	    <scope>test</scope>
-	</dependency>
+		<dependency>
+		    <groupId>org.hamcrest</groupId>
+		    <artifactId>hamcrest-library</artifactId>
+		    <version>2.1</version>
+		    <scope>test</scope>
+		</dependency>
+
+		<dependency>
+		   	<groupId>edu.kit.ipd</groupId>
+			<artifactId>NLWrapper</artifactId>
+			<version>0.0.1</version>
+		</dependency>
 	</dependencies>
 
 	<build>
