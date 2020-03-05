@@ -1,0 +1,1 @@
+packageSearchIndex = [{"l":"All Packages","url":"allpackages-index.html"},{"l":"edu.kit.ipd.are.graphimprove.nlp"},{"l":"edu.kit.ipd.are.graphimprove.nlp.accessdecorators"},{"l":"edu.kit.ipd.are.graphimprove.nlp.helper"},{"l":"edu.kit.ipd.are.graphimprove.nlp.improvestrategies"}]
