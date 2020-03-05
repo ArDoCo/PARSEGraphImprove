@@ -20,7 +20,7 @@ jobs:
       with:
         java-version: 11
     - name: Build with Maven
-      run: mvn -B javadoc:javadoc --file pom.xml
+      run: mvn -B javadoc:javadoc --file pom.xml --settings .github/workflows/settings.xml
     - name: Upload artifact
       uses: actions/upload-artifact@v1.0.0
       with:
