@@ -3,10 +3,10 @@ name: Create and deploy javadoc
 # TODO: create folders for each version and deploy the files to the corresponding version folder
 # You can prbly use the variable $GITHUB_REF
 
-on: [push]
-  # push:
-  #   tags:
-  #     - 'v*' # Push events to matching v*, i.e. v1.0, v20.15.10
+on:
+  push:
+    tags:
+      - 'v*' # Push events to matching v*, i.e. v1.0, v20.15.10
 
 jobs:
   build:
@@ -48,7 +48,3 @@ jobs:
       with:
         branch: gh-pages
         github_token: ${{ secrets.GITHUB_TOKEN }}
-    - name: Checkout master
-      uses: actions/checkout@v2.0.0
-      with:
-        ref: master
