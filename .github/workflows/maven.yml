@@ -19,8 +19,10 @@ jobs:
         path: ~/.m2
         key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
         restore-keys: ${{ runner.os }}-m2
+     name: maven-settings-xml-action
+      uses: whelk-io/maven-settings-xml-action@v4
+      with:
+        repositories: '[{ "id": "github", "url": "https://maven.pkg.github.com/${GITHUB_REPOSITORY}"}]'
+        servers: '[{ "id": "github", "privateKey": "${{ secrets.GITHUB_TOKEN }}" }]'
     - name: Build with Maven
-      run: mvn -B package --file pom.xml --settings .github/workflows/settings.xml
-      env:
-        GITHUB_USERNAME: x-access-token
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      run: mvn -B package --file pom.xml
