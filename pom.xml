@@ -8,10 +8,11 @@
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.build.optimize>true</project.build.optimize>
-	    <java.version>11</java.version>
-	    <maven-compiler-plugin.version>3.8.0</maven-compiler-plugin.version>
-	    <jena.version>3.7.0</jena.version>
-	    <eclipse.collections.version>9.2.0</eclipse.collections.version>
+		<java.version>11</java.version>
+		<maven-compiler-plugin.version>3.8.0</maven-compiler-plugin.version>
+		<jena.version>3.7.0</jena.version>
+		<eclipse.collections.version>9.2.0</eclipse.collections.version>
+		<nlwrapper.version>0.0.3</nlwrapper.version>
 	</properties>
 
   <repositories>
@@ -119,7 +120,7 @@
 		<dependency>
 		   	<groupId>edu.kit.ipd</groupId>
 			<artifactId>NLWrapper</artifactId>
-			<version>0.0.1</version>
+			<version>${nlwrapper.version}</version>
 		</dependency>
 	</dependencies>
 
