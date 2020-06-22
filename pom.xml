@@ -12,7 +12,6 @@
 		<maven-compiler-plugin.version>3.8.0</maven-compiler-plugin.version>
 		<jena.version>3.7.0</jena.version>
 		<eclipse.collections.version>9.2.0</eclipse.collections.version>
-		<indirect.version>0.0.9</indirect.version>
 		<nlwrapper.version>0.0.4</nlwrapper.version>
 	</properties>
 
@@ -37,7 +36,7 @@
   <parent>
     <groupId>edu.kit.ipd.indirect</groupId>
     <artifactId>indirect</artifactId>
-    <version>${indirect.version}</version>
+    <version>0.0.9</version>
   </parent>
 
 	<dependencies>
