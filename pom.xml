@@ -15,7 +15,7 @@
 
   <repositories>
     <repository>
-      <id>github ArDoCo</id>
+      <id>github</id>
       <name>GitHub ArDoCo Apache Maven Packages</name>
       <url>https://maven.pkg.github.com/ArDoCo/ArDoCo-parent</url>
     </repository>
@@ -24,7 +24,7 @@
   <parent>
     <groupId>edu.kit.ipd</groupId>
     <artifactId>ArDoCo-parent</artifactId>
-    <version>0.0.5-beta1</version>
+    <version>0.0.5</version>
   </parent>
 
 	<dependencies>
@@ -56,12 +56,10 @@
 		<dependency>
 		  <groupId>org.eclipse.collections</groupId>
 		  <artifactId>eclipse-collections-api</artifactId>
-		  <version>${eclipse.collections.version}</version>
 		</dependency>
 		<dependency>
 		  <groupId>org.eclipse.collections</groupId>
 		  <artifactId>eclipse-collections</artifactId>
-		  <version>${eclipse.collections.version}</version>
 		</dependency>
 
 		<!-- Others -->
@@ -73,35 +71,26 @@
 		<dependency>
 	      <groupId>org.junit.jupiter</groupId>
 	      <artifactId>junit-jupiter-engine</artifactId>
-	      <version>5.3.1</version>
 	      <scope>test</scope>
 	    </dependency>
 
 	    <dependency>
 		    <groupId>org.mockito</groupId>
 		    <artifactId>mockito-junit-jupiter</artifactId>
-		    <version>2.23.0</version>
-		    <scope>test</scope>
 		</dependency>
 
 		<dependency>
 		    <groupId>org.junit.platform</groupId>
 		    <artifactId>junit-platform-runner</artifactId>
-		    <version>1.2.0</version>
-		    <scope>test</scope>
 		</dependency>
 		<dependency>
 		     <groupId>org.junit.vintage</groupId>
 		     <artifactId>junit-vintage-engine</artifactId>
-		     <version>5.2.0</version>
-		     <scope>test</scope>
 		</dependency>
 
 		<dependency>
 		    <groupId>org.hamcrest</groupId>
 		    <artifactId>hamcrest-library</artifactId>
-		    <version>2.1</version>
-		    <scope>test</scope>
 		</dependency>
 
 		<dependency>
