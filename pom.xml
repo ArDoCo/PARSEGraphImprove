@@ -2,7 +2,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>edu.kit.ipd</groupId>
   <artifactId>GraphImprove</artifactId>
-  <version>0.0.5</version>
+  <version>0.0.6</version>
   <name>GraphImprove</name>
 
 	<properties>
