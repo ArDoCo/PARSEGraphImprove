@@ -116,12 +116,4 @@
     </plugins>
     </build>
 
-  <distributionManagement>
-    <repository>
-		<id>github</id>
-		<name>GitHub ArDoCo/PARSEGraphImprove Apache Maven Packages</name>
-		<url>https://maven.pkg.github.com/ArDoCo/PARSEGraphImprove</url>
-   </repository>
-  </distributionManagement>
-
 </project>
