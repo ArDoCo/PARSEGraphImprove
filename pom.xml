@@ -3,7 +3,7 @@
 
   <parent>
     <groupId>edu.kit.ipd</groupId>
-    <artifactId>ArDoCo-parent</artifactId>
+    <artifactId>ArDoCo</artifactId>
     <version>0.1.0</version>
   </parent>
 
