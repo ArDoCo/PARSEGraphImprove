@@ -3,7 +3,9 @@ name: Create and deploy javadoc
 # TODO: create folders for each version and deploy the files to the corresponding version folder
 # You can prbly use the variable $GITHUB_REF
 
-on: deployment
+on:
+  registry_package:
+    types: [published]
 
 jobs:
   build:
