@@ -1,8 +1,15 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+    <groupId>edu.kit.ipd</groupId>
+    <artifactId>ArDoCo-parent</artifactId>
+    <version>0.0.9</version>
+  </parent>
+
   <groupId>edu.kit.ipd</groupId>
   <artifactId>GraphImprove</artifactId>
-  <version>0.0.6</version>
+  <version>${revision}</version>
   <name>GraphImprove</name>
 
 	<properties>
@@ -20,12 +27,6 @@
       <url>https://maven.pkg.github.com/ArDoCo/ArDoCo-parent</url>
     </repository>
   </repositories>
-
-  <parent>
-    <groupId>edu.kit.ipd</groupId>
-    <artifactId>ArDoCo-parent</artifactId>
-    <version>0.0.5</version>
-  </parent>
 
 	<dependencies>
 		<!-- INDIRECT -->
