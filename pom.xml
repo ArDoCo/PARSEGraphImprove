@@ -16,6 +16,10 @@
 		<java.version>11</java.version>
 		<maven-compiler-plugin.version>3.8.0</maven-compiler-plugin.version>
 		<nlwrapper.version>0.0.4</nlwrapper.version>
+
+		<sonar.projectKey>ArDoCo_PARSEGraphImprove</sonar.projectKey>
+		<sonar.organization>ardoco</sonar.organization>
+		<sonar.host.url>https://sonarcloud.io</sonar.host.url>
 	</properties>
 
   <repositories>
